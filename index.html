@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center><h1>JS-Handson(Inheritance and Prototype)</h1></center>
+
+
+    <h3>1) Create 2 objects - parent and child. Attach methods to parent and use those methods in child object using parents prototype</h3>
+    <pre>
+        let Parentobj={
+            calAge:function(){
+                console.log(`${this.fname} ${this.lname} ${this.age}`)
+            }
+        }
+        const childobj=Object.create(Parentobj);
+        childobj.fname="Pranit"
+        childobj.lname="Kamble"
+        childobj.age="23"
+        
+        childobj.calAge()
+    </pre>
+
+    <h3>2) Write code to explain prototype chaining</h3>
+    <pre>
+        Object.prototype.surname="James"
+
+        let Grandfather={
+        name:"Joe"
+        }
+
+        let Father=Object.create(Grandfather)
+        Father.name="John"
+        Father.id="2"
+        
+        let child=Object.create(Father)
+        console.log(child.name)
+        console.log(child.surname)
+        console.log(child.id)
+
+        <h3>Prototype chaining:-</h3>
+        In Prototype chaining if we give a property to Parent then all the childs of that Parent will have that property by means of Inheritance.
+        In the above example if we give an property to a god object then all the object we create will have that property
+    </pre>
+
+    <h3>3) Add a method to calculate sum of all elements in Array in array's protype, use that method to calculate sum for multiple arrays</h3>
+    <pre>
+        let Calsum={
+            sumof:function(arr){
+                let sum=0;
+                for (const num of arr) {
+                    
+                    sum=sum+num 
+                }
+                console.log(sum) 
+            }
+        }
+        Calsum.sumof([1,2,3,4])
+        Calsum.sumof([2,4,5,7])
+        Calsum.sumof([3,2,1,6])
+    </pre>
+
+    <h3>4) Write a JavaScript function to retrieve all the names of object's own and inherited properties.</h3>
+    <pre>
+        let obj={
+            name:"Pranit",
+            id:"7",
+            Batch:"EA18"
+        }
+        
+        for(var [k,v] of Object.entries(obj)) {
+          console.log(k)
+        }
+    </pre>
+
+    <script src="script.js"></script>
+</body>
+</html>
